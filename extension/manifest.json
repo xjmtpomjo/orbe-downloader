@@ -1,0 +1,37 @@
+{
+  "name": "Orbe Downloader",
+  "description": "Orbe Downloader",
+  "version": "0.1",
+  "browser_action": {
+  	"default_icon":{
+  		"19": "img/Orbe_gray_19.png"
+  	},
+  	"default_title":"Orbe Downloader",
+  	"default_popup":"popup.html"
+  },
+  "web_accessible_resources": ["img/Orbe_green_19.png", "js/jquery-2.0.3.min.js", "js/jquery-2.0.3.min.map", "js/intercepter.js"],
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["js/jquery-2.0.3.min.js", "js/intercepter.js"],
+      "run_at" : "document_start"
+    }
+  ],
+  "permissions": [
+  	"tabs",
+  	"contextMenus",
+  	"notifications",
+    "activeTab",
+    "http://127.0.0.1:1337/"
+  ],
+  "background": {
+  	"persistent": true,
+    "scripts": [
+      	"js/orbe_ext.js"
+    ]
+  },
+  "icons": {
+  	"16": "img/Orbe_icon_19.png"
+  },
+  "manifest_version": 2
+}
